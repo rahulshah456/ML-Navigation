@@ -11,33 +11,35 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
+
 class Ui_MainWindow(object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(819, 516)
+        MainWindow.setFixedSize(817, 518)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.nav_frame = QtWidgets.QFrame(self.centralwidget)
         self.nav_frame.setGeometry(QtCore.QRect(0, 0, 211, 521))
         self.nav_frame.setStyleSheet("QFrame {\n"
-"    background-color: #222831;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    padding: 10px 10px;\n"
-"    margin-bottom: 10px;\n"
-"    color: rgb(255, 255, 255);\n"
-"    border: none;\n"
-"    background-color: rgb(72, 72, 72);\n"
-"    transition: 0.2s;\n"
-"}\n"
-"\n"
-"QPushButton:hover,QPushButton:focus {\n"
-"    border-left: 3px solid #f05454;\n"
-"    background-color: rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"")
+        "    background-color: #222831;\n"
+        "}\n"
+        "\n"
+        "QPushButton {\n"
+        "    padding: 10px 10px;\n"
+        "    margin-bottom: 10px;\n"
+        "    color: rgb(255, 255, 255);\n"
+        "    border: none;\n"
+        "    background-color: rgb(72, 72, 72);\n"
+        "    transition: 0.2s;\n"
+        "}\n"
+        "\n"
+        "QPushButton:hover,QPushButton:focus {\n"
+        "    border-left: 3px solid #f05454;\n"
+        "    background-color: rgb(100, 100, 100);\n"
+        "}\n"
+        "\n"
+        "")
         self.nav_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.nav_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.nav_frame.setObjectName("nav_frame")
@@ -115,31 +117,175 @@ class Ui_MainWindow(object):
         self.face_page.setObjectName("face_page")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.face_page)
         self.verticalLayout_6.setObjectName("verticalLayout_6")
-        self.label = QtWidgets.QLabel(self.face_page)
+        self.video_label_face = QtWidgets.QLabel(self.face_page)
+        self.video_label_face.setStyleSheet("background-color:#222831;")
+        self.video_label_face.setText("")
+        self.video_label_face.setObjectName("video_label_face")
+        self.verticalLayout_6.addWidget(self.video_label_face)
+        self.frame_3 = QtWidgets.QFrame(self.face_page)
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.frame_3)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.frame_5 = QtWidgets.QFrame(self.frame_3)
+        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.frame_5)
+        self.verticalLayout_10.setObjectName("verticalLayout_10")
+        self.label_7 = QtWidgets.QLabel(self.frame_5)
         font = QtGui.QFont()
-        font.setPointSize(32)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label.setFont(font)
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setWordWrap(True)
-        self.label.setObjectName("label")
-        self.verticalLayout_6.addWidget(self.label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        font.setPointSize(12)
+        self.label_7.setFont(font)
+        self.label_7.setObjectName("label_7")
+        self.verticalLayout_10.addWidget(self.label_7)
+        self.lmb_checkbox = QtWidgets.QCheckBox(self.frame_5)
+        self.lmb_checkbox.setObjectName("lmb_checkbox")
+        self.verticalLayout_10.addWidget(self.lmb_checkbox)
+        self.rbm_checkbox = QtWidgets.QCheckBox(self.frame_5)
+        self.rbm_checkbox.setObjectName("rbm_checkbox")
+        self.verticalLayout_10.addWidget(self.rbm_checkbox)
+        self.head_checkbox = QtWidgets.QCheckBox(self.frame_5)
+        self.head_checkbox.setObjectName("head_checkbox")
+        self.verticalLayout_10.addWidget(self.head_checkbox)
+        self.mouth_checkbox = QtWidgets.QCheckBox(self.frame_5)
+        self.mouth_checkbox.setObjectName("mouth_checkbox")
+        self.verticalLayout_10.addWidget(self.mouth_checkbox)
+        self.horizontalLayout.addWidget(self.frame_5, 0, QtCore.Qt.AlignTop)
+        self.frame_4 = QtWidgets.QFrame(self.frame_3)
+        self.frame_4.setStyleSheet("QPushButton {\n"
+        "    padding: 10px 10px;\n"
+        "    color: rgb(255, 255, 255);\n"
+        "    border: none;\n"
+        "    background-color: rgb(72, 72, 72);\n"
+        "    transition: 0.2s;\n"
+        "}\n"
+        "\n"
+        "QPushButton:hover,QPushButton:focus {\n"
+        "    border-bottom: 3px solid #f05454;\n"
+        "    background-color: rgb(100, 100, 100);\n"
+        "}")
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame_4)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.detect_button = QtWidgets.QPushButton(self.frame_4)
+        self.detect_button.setObjectName("detect_button")
+        self.horizontalLayout_2.addWidget(self.detect_button)
+        self.enable_button = QtWidgets.QPushButton(self.frame_4)
+        self.enable_button.setObjectName("enable_button")
+        self.horizontalLayout_2.addWidget(self.enable_button)
+        self.horizontalLayout.addWidget(self.frame_4, 0, QtCore.Qt.AlignBottom)
+        self.verticalLayout_6.addWidget(self.frame_3)
         self.stackedWidget.addWidget(self.face_page)
         self.hand_page = QtWidgets.QWidget()
         self.hand_page.setObjectName("hand_page")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.hand_page)
         self.verticalLayout_7.setObjectName("verticalLayout_7")
-        self.label_2 = QtWidgets.QLabel(self.hand_page)
+        self.video_label_fingers = QtWidgets.QLabel(self.hand_page)
+        self.video_label_fingers.setStyleSheet("background-color:#222831;")
+        self.video_label_fingers.setText("")
+        self.video_label_fingers.setObjectName("video_label_fingers")
+        self.verticalLayout_7.addWidget(self.video_label_fingers)
+        self.frame_10 = QtWidgets.QFrame(self.hand_page)
+        self.frame_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_10.setObjectName("frame_10")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_10)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.frame_13 = QtWidgets.QFrame(self.frame_10)
+        self.frame_13.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_13.setObjectName("frame_13")
+        self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.frame_13)
+        self.verticalLayout_14.setObjectName("verticalLayout_14")
+        self.label_11 = QtWidgets.QLabel(self.frame_13)
         font = QtGui.QFont()
-        font.setPointSize(32)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_2.setFont(font)
-        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setWordWrap(True)
-        self.label_2.setObjectName("label_2")
-        self.verticalLayout_7.addWidget(self.label_2, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        font.setPointSize(12)
+        self.label_11.setFont(font)
+        self.label_11.setObjectName("label_11")
+        self.verticalLayout_14.addWidget(self.label_11)
+        self.frame_16 = QtWidgets.QFrame(self.frame_13)
+        self.frame_16.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_16.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_16.setObjectName("frame_16")
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.frame_16)
+        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        self.label_12 = QtWidgets.QLabel(self.frame_16)
+        self.label_12.setObjectName("label_12")
+        self.horizontalLayout_7.addWidget(self.label_12)
+        self.text_box_1 = QtWidgets.QLineEdit(self.frame_16)
+        self.text_box_1.setObjectName("text_box_1")
+        self.horizontalLayout_7.addWidget(self.text_box_1)
+        self.verticalLayout_14.addWidget(self.frame_16)
+        self.frame_17 = QtWidgets.QFrame(self.frame_13)
+        self.frame_17.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_17.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_17.setObjectName("frame_17")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_17)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label_13 = QtWidgets.QLabel(self.frame_17)
+        self.label_13.setObjectName("label_13")
+        self.horizontalLayout_3.addWidget(self.label_13)
+        self.text_box_2 = QtWidgets.QLineEdit(self.frame_17)
+        self.text_box_2.setObjectName("text_box_2")
+        self.horizontalLayout_3.addWidget(self.text_box_2)
+        self.verticalLayout_14.addWidget(self.frame_17)
+        self.frame_18 = QtWidgets.QFrame(self.frame_13)
+        self.frame_18.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_18.setObjectName("frame_18")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_18)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.label_14 = QtWidgets.QLabel(self.frame_18)
+        self.label_14.setObjectName("label_14")
+        self.horizontalLayout_4.addWidget(self.label_14)
+        self.text_box_3 = QtWidgets.QLineEdit(self.frame_18)
+        self.text_box_3.setObjectName("text_box_3")
+        self.horizontalLayout_4.addWidget(self.text_box_3)
+        self.verticalLayout_14.addWidget(self.frame_18)
+        self.frame_19 = QtWidgets.QFrame(self.frame_13)
+        self.frame_19.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_19.setObjectName("frame_19")
+        self.horizontalLayout_8 = QtWidgets.QHBoxLayout(self.frame_19)
+        self.horizontalLayout_8.setObjectName("horizontalLayout_8")
+        self.label_15 = QtWidgets.QLabel(self.frame_19)
+        self.label_15.setObjectName("label_15")
+        self.horizontalLayout_8.addWidget(self.label_15)
+        self.text_box_4 = QtWidgets.QLineEdit(self.frame_19)
+        self.text_box_4.setObjectName("text_box_4")
+        self.horizontalLayout_8.addWidget(self.text_box_4)
+        self.verticalLayout_14.addWidget(self.frame_19)
+        self.horizontalLayout_5.addWidget(self.frame_13, 0, QtCore.Qt.AlignTop)
+        self.frame_14 = QtWidgets.QFrame(self.frame_10)
+        self.frame_14.setStyleSheet("QPushButton {\n"
+        "    padding: 10px 10px;\n"
+        "    color: rgb(255, 255, 255);\n"
+        "    border: none;\n"
+        "    background-color: rgb(72, 72, 72);\n"
+        "    transition: 0.2s;\n"
+        "}\n"
+        "\n"
+        "QPushButton:hover,QPushButton:focus {\n"
+        "    border-bottom: 3px solid #f05454;\n"
+        "    background-color: rgb(100, 100, 100);\n"
+        "}")
+        self.frame_14.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_14.setObjectName("frame_14")
+        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.frame_14)
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.detect_button_2 = QtWidgets.QPushButton(self.frame_14)
+        self.detect_button_2.setObjectName("detect_button_2")
+        self.horizontalLayout_6.addWidget(self.detect_button_2)
+        self.enable_button_2 = QtWidgets.QPushButton(self.frame_14)
+        self.enable_button_2.setObjectName("enable_button_2")
+        self.horizontalLayout_6.addWidget(self.enable_button_2)
+        self.horizontalLayout_5.addWidget(self.frame_14, 0, QtCore.Qt.AlignBottom)
+        self.verticalLayout_7.addWidget(self.frame_10)
         self.stackedWidget.addWidget(self.hand_page)
         self.gestures_page = QtWidgets.QWidget()
         self.gestures_page.setObjectName("gestures_page")
@@ -176,20 +322,55 @@ class Ui_MainWindow(object):
         self.settings_page.setObjectName("settings_page")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.settings_page)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
-        self.label_5 = QtWidgets.QLabel(self.settings_page)
+        self.frame_6 = QtWidgets.QFrame(self.settings_page)
+        self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_6.setObjectName("frame_6")
+        self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.frame_6)
+        self.verticalLayout_11.setObjectName("verticalLayout_11")
+        self.frame_8 = QtWidgets.QFrame(self.frame_6)
+        self.frame_8.setStyleSheet("background-color: #222831;\n"
+        "color: rgb(255, 255, 255);")
+        self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_8.setObjectName("frame_8")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.frame_8)
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.label_5 = QtWidgets.QLabel(self.frame_8)
+        font = QtGui.QFont()
+        font.setPointSize(50)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_5.setFont(font)
+        self.label_5.setStyleSheet("")
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout_12.addWidget(self.label_5)
+        self.label_8 = QtWidgets.QLabel(self.frame_8)
+        self.label_8.setObjectName("label_8")
+        self.verticalLayout_12.addWidget(self.label_8)
+        self.verticalLayout_11.addWidget(self.frame_8, 0, QtCore.Qt.AlignTop)
+        self.frame_7 = QtWidgets.QFrame(self.frame_6)
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.label_9 = QtWidgets.QLabel(self.frame_7)
+        self.label_9.setGeometry(QtCore.QRect(110, 60, 367, 104))
         font = QtGui.QFont()
         font.setPointSize(32)
         font.setBold(True)
         font.setWeight(75)
-        self.label_5.setFont(font)
-        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_5.setWordWrap(True)
-        self.label_5.setObjectName("label_5")
-        self.verticalLayout_5.addWidget(self.label_5, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.label_9.setFont(font)
+        self.label_9.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_9.setWordWrap(True)
+        self.label_9.setObjectName("label_9")
+        self.verticalLayout_11.addWidget(self.frame_7)
+        self.verticalLayout_5.addWidget(self.frame_6)
         self.stackedWidget.addWidget(self.settings_page)
         MainWindow.setCentralWidget(self.centralwidget)
 
+
         self.stackedWidget.setCurrentWidget(self.face_page)
+
         self.face_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.face_page))
         self.fingers_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.hand_page))
         self.gesture_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.gestures_page))
@@ -197,7 +378,7 @@ class Ui_MainWindow(object):
         self.settings_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page))
 
         self.retranslateUi(MainWindow)
-        # self.stackedWidget.setCurrentIndex(2)
+        # self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -208,12 +389,26 @@ class Ui_MainWindow(object):
         self.fingers_button.setText(_translate("MainWindow", "Hand Fingers"))
         self.gesture_button.setText(_translate("MainWindow", "Hand Gestures"))
         self.voice_button.setText(_translate("MainWindow", "Voice Navigation"))
-        self.settings_button.setText(_translate("MainWindow", " Settings"))
-        self.label.setText(_translate("MainWindow", "Face Navigation Page"))
-        self.label_2.setText(_translate("MainWindow", "Hand Fingers Page"))
+        self.settings_button.setText(_translate("MainWindow", "Settings"))
+        self.label_7.setText(_translate("MainWindow", "Check to enable features"))
+        self.lmb_checkbox.setText(_translate("MainWindow", "Left Eye Blink to Left Click"))
+        self.rbm_checkbox.setText(_translate("MainWindow", "Right Eye Blink to Right Click"))
+        self.head_checkbox.setText(_translate("MainWindow", "Move Head to Move Mouse Pointer"))
+        self.mouth_checkbox.setText(_translate("MainWindow", "Mouth Open to Scoll"))
+        self.detect_button.setText(_translate("MainWindow", "Detect Camera"))
+        self.enable_button.setText(_translate("MainWindow", "Save / Enable"))
+        self.label_11.setText(_translate("MainWindow", "Add new Websites to open on detection"))
+        self.label_12.setText(_translate("MainWindow", "1 Finger Detected"))
+        self.label_13.setText(_translate("MainWindow", "2 Finger Detected"))
+        self.label_14.setText(_translate("MainWindow", "3 Finger Detected"))
+        self.label_15.setText(_translate("MainWindow", "4 Finger Detected"))
+        self.detect_button_2.setText(_translate("MainWindow", "Detect Camera"))
+        self.enable_button_2.setText(_translate("MainWindow", "Save / Enable"))
         self.label_3.setText(_translate("MainWindow", "Hand Gestures Page"))
         self.label_4.setText(_translate("MainWindow", "Voice Navigation Page"))
-        self.label_5.setText(_translate("MainWindow", "User Settings Page"))
+        self.label_5.setText(_translate("MainWindow", "ML Navigation"))
+        self.label_8.setText(_translate("MainWindow", "Version: 0.1.beta"))
+        self.label_9.setText(_translate("MainWindow", "Settings Page"))
 
 
 if __name__ == "__main__":

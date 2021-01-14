@@ -86,6 +86,7 @@ class Thread(QThread):
 
                 # Detect faces in the grayscale frame
                 rects = detector(rgbImage, 0)
+                
 
                 # Loop over the face detections
                 if len(rects) > 0:
@@ -129,57 +130,60 @@ class Thread(QThread):
 
                     for (x, y) in np.concatenate((mouth, leftEye, rightEye), axis=0):
                         cv2.circle(frame, (x, y), 2, GREEN_COLOR, -1)
+                    self.changePixmap.emit(p)
+                    print("face detected!")
+                    
 
                     # Check to see if the eye aspect ratio is below the blink
                     # threshold, and if so, increment the blink frame counter
-                    if diff_ear > WINK_AR_DIFF_THRESH:
+                    # if diff_ear > WINK_AR_DIFF_THRESH:
 
-                        if leftEAR < rightEAR:
-                            if leftEAR < EYE_AR_THRESH:
-                                WINK_COUNTER += 1
+                    #     if leftEAR < rightEAR:
+                    #         if leftEAR < EYE_AR_THRESH:
+                    #             WINK_COUNTER += 1
 
-                                if WINK_COUNTER > WINK_CONSECUTIVE_FRAMES:
-                                    pag.click(button='left')
+                    #             if WINK_COUNTER > WINK_CONSECUTIVE_FRAMES:
+                    #                 pag.click(button='left')
 
-                                    WINK_COUNTER = 0
+                    #                 WINK_COUNTER = 0
 
-                        elif leftEAR > rightEAR:
-                            if rightEAR < EYE_AR_THRESH:
-                                WINK_COUNTER += 1
+                    #     elif leftEAR > rightEAR:
+                    #         if rightEAR < EYE_AR_THRESH:
+                    #             WINK_COUNTER += 1
 
-                                if WINK_COUNTER > WINK_CONSECUTIVE_FRAMES:
-                                    pag.click(button='right')
+                    #             if WINK_COUNTER > WINK_CONSECUTIVE_FRAMES:
+                    #                 pag.click(button='right')
 
-                                    WINK_COUNTER = 0
-                        else:
-                            WINK_COUNTER = 0
-                    else:
-                        if ear <= EYE_AR_THRESH:
-                            EYE_COUNTER += 1
+                    #                 WINK_COUNTER = 0
+                    #     else:
+                    #         WINK_COUNTER = 0
+                    # else:
+                    #     if ear <= EYE_AR_THRESH:
+                    #         EYE_COUNTER += 1
 
-                            if EYE_COUNTER > EYE_AR_CONSECUTIVE_FRAMES:
-                                SCROLL_MODE = not SCROLL_MODE
-                                # INPUT_MODE = not INPUT_MODE
-                                EYE_COUNTER = 0
+                    #         if EYE_COUNTER > EYE_AR_CONSECUTIVE_FRAMES:
+                    #             SCROLL_MODE = not SCROLL_MODE
+                    #             # INPUT_MODE = not INPUT_MODE
+                    #             EYE_COUNTER = 0
 
-                                # nose point to draw a bounding box around it
+                    #             # nose point to draw a bounding box around it
 
-                        else:
-                            EYE_COUNTER = 0
-                            WINK_COUNTER = 0
+                    #     else:
+                    #         EYE_COUNTER = 0
+                    #         WINK_COUNTER = 0
 
-                    if mar > MOUTH_AR_THRESH:
-                        MOUTH_COUNTER += 1
+                    # if mar > MOUTH_AR_THRESH:
+                    #     MOUTH_COUNTER += 1
 
-                        if MOUTH_COUNTER >= MOUTH_AR_CONSECUTIVE_FRAMES:
-                            # if the alarm is not on, turn it on
-                            INPUT_MODE = not INPUT_MODE
-                            # SCROLL_MODE = not SCROLL_MODE
-                            MOUTH_COUNTER = 0
-                            ANCHOR_POINT = nose_point
+                    #     if MOUTH_COUNTER >= MOUTH_AR_CONSECUTIVE_FRAMES:
+                    #         # if the alarm is not on, turn it on
+                    #         INPUT_MODE = not INPUT_MODE
+                    #         # SCROLL_MODE = not SCROLL_MODE
+                    #         MOUTH_COUNTER = 0
+                    #         ANCHOR_POINT = nose_point
 
-                    else:
-                        MOUTH_COUNTER = 0
+                    # else:
+                    #     MOUTH_COUNTER = 0
 
                     # if INPUT_MODE:
                     #     cv2.putText(frame, "INPUT MODE", (10, 30),
